@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sign Up | Log In</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.scss" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="wrapper zIndex cardanimation" id="wrapper_1">
+      <div class="title-text">
+        <div class="title login">Login</div>
+        <!-- <div class="title signup">Account 1</div> -->
+      </div>
+      <div class="form-container">
+        <!-- <div class="slide-controls">
+          <input type="radio" name="slide" id="login" checked />
+          <input type="radio" name="slide" id="signup" />
+          <label for="login" class="slide login">Login</label>
+          <div class="slider-tab"></div>
+        </div> -->
+        <div class="form-inner">
+          <form action="#" class="login">
+            <div class="field">
+              <input type="text" placeholder="Email Address" required />
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Password" required />
+            </div>
+            <div class="pass-link">
+              <a href="#">Reset password?</a>
+            </div>
+            <div class="field btn">
+              <div class="btn-layer"></div>
+              <input type="submit" value="Login" />
+            </div>
+          </form>
+          <div class="signup-link">
+            Don't Have Account?
+            <button class="btn btn-5" onclick="switchCard('wrapper_1')">
+              Create A New
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- class="btn btn-2 draw-border" -->
+      <!-- <button
+        class="btn btn-5"
+        id="switchCard"
+        onclick="switchCard('wrapper_1')"
+      >
+        Switch
+      </button> -->
+    </div>
+    <div class="wrapper wrapper_under" id="wrapper_2">
+      <div class="title-text">
+        <div class="title login">SignUp</div>
+      </div>
+      <div class="form-container">
+        <!-- <div class="slide-controls">
+          <input type="radio" name="slide" id="login" checked />
+          <input type="radio" name="slide" id="signup" />
+          <label for="signup" class="slide signup">SignUp</label>
+          <div class="slider-tab"></div>
+        </div> -->
+        <div class="form-inner">
+          <form class="signup">
+            <div class="field">
+              <input type="text" placeholder="Email Address" required />
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Password" required />
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Confirm Password" required />
+            </div>
+            <div class="field btn">
+              <div class="btn-layer"></div>
+              <input type="submit" value="SignUp" />
+            </div>
+          </form>
+          <div class="login-link">
+            Already Have Account?
+            <button class="btn btn-5" onclick="switchCard('wrapper_2')">
+              Login
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- class="btn btn-5 draw-border" -->
+      <!-- <button
+        class="btn btn-5"
+        id="switchCard"
+        onclick="switchCard('wrapper_2')"
+      >
+        Switch
+      </button> -->
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      //   const loginText = document.querySelector(".title-text .login");
+      //   const loginForm = document.querySelector("form.login");
+      //   const loginBtn = document.querySelector("label.login");
+      //   const signupBtn = document.querySelector("label.signup");
+      //   const signupLink = document.querySelector("form .signup-link a");
+      //   signupBtn.onclick = () => {
+      //     loginForm.style.marginLeft = "-50%";
+      //     loginText.style.marginLeft = "-50%";
+      //   };
+      //   loginBtn.onclick = () => {
+      //     loginForm.style.marginLeft = "0%";
+      //     loginText.style.marginLeft = "0%";
+      //   };
+      //   signupLink.onclick = () => {
+      //     signupBtn.click();
+      //     return false;
+      //   };
+
+      // jQuery code goes here
+      function switchCard(wrapperId) {
+        console.log(wrapperId);
+        if (wrapperId == "wrapper_1") {
+          $("#wrapper_2").removeClass("wrapper_under");
+          $("#wrapper_2").addClass("cardanimation");
+          $("#wrapper_1").removeClass("cardanimation");
+          setTimeout(() => {
+            $("#wrapper_2").addClass("zIndex");
+            $("#wrapper_1").removeClass("zIndex");
+          }, 400);
+          $("#wrapper_1").addClass("wrapper_under");
+        } else {
+          $("#wrapper_1").removeClass("wrapper_under");
+          $("#wrapper_1").addClass("cardanimation");
+          $("#wrapper_2").removeClass("cardanimation");
+          setTimeout(() => {
+            $("#wrapper_1").addClass("zIndex");
+            $("#wrapper_2").removeClass("zIndex");
+          }, 400);
+
+          $("#wrapper_2").addClass("wrapper_under");
+        }
+      }
+    </script>
+  </body>
+</html>

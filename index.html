@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .card-container {
+        position: relative;
+        width: 300px; /* Adjust width and height as per your card size */
+        height: 200px;
+      }
+
+      .card {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #080707; /* Set your desired background color */
+        transition: transform 0.5s ease; /* Add a smooth transition effect */
+      }
+
+      .card1 {
+        z-index: 2; /* Ensure card 1 is initially on top */
+      }
+
+      .card2 {
+        transform: translateY(100%); /* Move card 2 down initially */
+      }
+
+      .card.slide-left {
+        transform: translateX(-100%) translateY(100%); /* Slide the card to the left and move it down */
+      }
+
+      .card.slide-right {
+        transform: translateX(100%) translateY(100%); /* Slide the card to the right and move it down */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card-container">
+      <div class="card card1">
+        <!-- Card 1 content goes here -->
+        <button class="submit-btn">Submit</button>
+      </div>
+      <div class="card card2">
+        <!-- Card 2 content goes here -->
+        <button class="submit-btn">Submit</button>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $(".submit-btn").click(function () {
+          var $card = $(this).closest(".card");
+          var $otherCard = $card.siblings(".card");
+
+          $card.addClass("slide-left");
+          $otherCard.addClass("slide-right");
+
+          setTimeout(function () {
+            $card
+              .removeClass("slide-left")
+              .css("z-index", 1)
+              .css("transform", "translateY(100%)");
+            $otherCard.removeClass("slide-right").css("z-index", 2);
+          }, 500); // Adjust the timeout duration to match the transition duration in CSS
+        });
+      });
+    </script>
+  </body>
+</html>
